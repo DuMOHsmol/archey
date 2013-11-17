@@ -136,7 +136,7 @@ def output(key, value):
 # RAM Function.
 def ram_display():
  raminfo = Popen(['free', '-m'], stdout=PIPE).communicate()[0].split('\n')
- ram = ''.join(filter(re.compile('M').search, raminfo)).split()
+ ram = raminfo[1].split()
  used = int(ram[2]) - int(ram[5]) - int(ram[6])
  usedpercent = ((float(used) / float(ram[1])) * 100)
  if usedpercent <= 33:
